@@ -1,0 +1,4 @@
+to print smallest:
+  cat numbers.txt | sort -n | head -n 1
+to print largesrt:
+  cat 5numbers.txt | sort -r -n | head -n 1
