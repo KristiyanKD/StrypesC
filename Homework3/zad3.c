@@ -34,28 +34,25 @@ int main()
     printf("contain: %s\n", strstr(a, "-B"));
 
     printf("contain: %s\n", strstr(a, "MB"));
-    
-
-
 
     return 0;
 }
 unsigned strlen(const char* arr)
 {
     unsigned size = 0;
-    for(; arr[size]!='\0'; ++size){}
+    for( ; arr[size] != '\0'; ++size){}
     return size;
 }
 unsigned strnlen(const char* arr, unsigned n)
 {
     unsigned size = 0;
-    for(; arr[size]!='\0' && size!=n; ++size){}
+    for( ; arr[size] != '\0' && size != n; ++size){}
     return size;
 }
 char* strcpy(char* dest, const char* str)
 {
     unsigned size = strlen(str);
-    for(unsigned i=0; i<size; ++i)
+    for(unsigned i = 0; i < size; ++i)
     {
         dest[i] = str[i];
     }
@@ -66,10 +63,10 @@ char* strcpy(char* dest, const char* str)
 char* strncpy(char* dest, const char* str, unsigned n)
 {
     unsigned size = strlen(str);
-    if(size>n){
-        size=n;
+    if(size > n){
+        size = n;
     }
-    for(unsigned i=0; i < size; ++i)
+    for(unsigned i = 0; i < size; ++i)
     {
         dest[i] = str[i];
     }
@@ -81,11 +78,11 @@ char* strcat(char* dest, const char* str)
     unsigned destSize = strlen(dest);
     unsigned strSize = strlen(str);
 
-    for(unsigned i=0; i < strSize; ++i)
+    for(unsigned i = 0; i < strSize; ++i)
     {
         dest[destSize + i] = str[i];
     }
-    dest[destSize+strSize] = '\0';
+    dest[destSize + strSize] = '\0';
     return dest;
 }
 char* strncat(char* dest, const char* str, unsigned n)
@@ -93,14 +90,14 @@ char* strncat(char* dest, const char* str, unsigned n)
     unsigned destSize = strlen(dest);
     unsigned strSize = strlen(str);
 
-    if(strSize>n){
-        strSize=n;
+    if(strSize > n){
+        strSize = n;
     }
-    for(unsigned i=0; i < strSize; ++i)
+    for(unsigned i = 0; i < strSize; ++i)
     {
         dest[destSize + i] = str[i];
     }
-    dest[destSize+strSize] = '\0';
+    dest[destSize + strSize] = '\0';
     return dest;
 }
 int strcmp (const char* str1, const char* str2)
@@ -108,20 +105,20 @@ int strcmp (const char* str1, const char* str2)
     unsigned str1Size = strlen(str1);
     unsigned str2Size = strlen(str2);
     if(str1Size == str2Size){
-        for(int i=0; i<str2Size; ++i){
-            if(str1[i]==str2[i]){
+        for(int i = 0; i < str2Size; ++i){
+            if(str1[i] == str2[i]){
                 continue;
             }
             else{
-                return str1[i]-str2[i];
+                return str1[i] - str2[i];
             }
         }
         return 0;
     }
-    for(int i=0; i < (str1Size>str2Size?str1Size:str2Size);++i)
+    for(int i = 0; i < (str1Size > str2Size ? str1Size : str2Size); ++i)
     {
         if(str1[i] != str2[i])
-            return str1[i]-str2[i];
+            return str1[i] - str2[i];
     }
 }
 int strncmp (const char* str1, const char* str2, unsigned n)
@@ -130,7 +127,7 @@ int strncmp (const char* str1, const char* str2, unsigned n)
     for(i = 0; i < n; ++i)
     {
         if(str1[i] != str2[i])
-            return str1[i]-str2[i];
+            return str1[i] - str2[i];
     }
     if(i == n){
         return 0;
@@ -140,11 +137,11 @@ char* strstr(const char* str1, const char* str2)
 {
     unsigned str1Size = strlen(str1);
     unsigned str2Size = strlen(str2);
-    for(int i=0; i < str1Size; ++i)
+    for(int i = 0; i < str1Size; ++i)
     {
         if(str1[i] == str2[0]){
-            if(strncmp(str1+i, str2, str2Size) == 0){
-                return str1+i;
+            if(strncmp(str1 + i, str2, str2Size) == 0){
+                return str1 + i;
             }
         }
     }
