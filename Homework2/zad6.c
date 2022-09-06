@@ -1,11 +1,11 @@
 #include<stdio.h>
 #include<stdint.h>
 
-void print(const uint32_t num)
+void print(const uint64_t num)
 {
-    for (int i = 31; i >= 0 ; --i)
+    for (int i = 63; i >= 0 ; --i)
     {
-        printf("%d", num&(1<<i)?1:0);
+        printf("%d", num & (1ull << i) ? 1 : 0);
     
     }
     printf("\n\n");
@@ -13,24 +13,21 @@ void print(const uint32_t num)
 
 void input(uint8_t* position)
 {
-    uint8_t p=0;
     do
     {
         printf("position: ");
-        scanf("%hhd", &p);
-    }while(p<0 || p>31);
-
-    *position = p;
+        scanf("%hhd", position);
+    }while((*position < 0) || (*position > 63));
 }
 
-void clearAttendance(uint32_t* mask, const uint8_t n)
+void clearAttendance(uint64_t* mask, const uint8_t n)
 {
-    *mask &= ~(1 << n);
+    *mask &= ~(1ull << n);
 }
 
-void AttendanceInfo(uint32_t* mask, const uint8_t n)
+void AttendanceInfo(uint64_t* mask, const uint8_t n)
 {
-    uint8_t result = (*mask & (1 << n)) ? 1 : 0;
+    uint8_t result = (*mask & (1ull << n)) ? 1 : 0;
     printf("Student no.%d ", n);
     if(!result)
     {
@@ -40,21 +37,21 @@ void AttendanceInfo(uint32_t* mask, const uint8_t n)
 
 }
 
-void setAttendance(uint32_t* mask, const uint8_t n)
+void setAttendance(uint64_t* mask, const uint8_t n)
 {
-    *mask |= (1 << n);
+    *mask |= (1ull << n);
 }
 
-void changeAttendance(uint32_t* mask, const uint8_t n)
+void changeAttendance(uint64_t* mask, const uint8_t n)
 {
-    *mask ^= (1 << n);
+    *mask ^= (1ull << n);
 }
 
 
 
 int main()
 {
-    uint32_t num = 0;
+    uint64_t num = 0;
     uint8_t option, position;
 
     while (1)
