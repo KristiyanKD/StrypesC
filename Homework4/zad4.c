@@ -12,7 +12,6 @@ int main()
     temp = 0;
     while(sqrt != temp){
         temp = sqrt;
-
         sqrt = ( n/temp + temp) / 2;
     }
 
