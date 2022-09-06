@@ -1,9 +1,8 @@
 #include<stdio.h>
-#include<math.h>
 
 int isRectangle(double w, double h)
 {
-    if(w>=0 && h>=0)
+    if(w >= 0 && h >= 0)
     {
         return 1;
     }
@@ -13,7 +12,7 @@ int isRectangle(double w, double h)
 
 int rectangle(double w, double h, double* S, double* P)
 {
-    if( isRectangle(w,h) )
+    if(isRectangle(w, h))
     {
         *P = (w + h) * 2;
         *S = w * h;
