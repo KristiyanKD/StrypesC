@@ -3,9 +3,9 @@
 
 int isTriangle(double a, double b, double c)
 {
-    if(a>0 && b>0 && c>0)
+    if((a > 0) && (b > 0) && (c > 0))
     {
-        if( (a+b>c) && (b+c>a) && (a+c>b) )
+        if((a + b > c) && (b + c > a) && (a + c > b))
         {
             return 1;
         }
@@ -16,7 +16,7 @@ int isTriangle(double a, double b, double c)
 
 int triangle(double a, double b, double c, double* S, double* P)
 {
-    if( isTriangle(a,b,c) )
+    if( isTriangle(a, b, c) )
     {
         *P = a + b + c;
         double p = (a + b + c) / 2;
